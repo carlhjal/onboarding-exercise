@@ -10,7 +10,7 @@ int main(void) {
         scanf("%39s", guess);
         printf("Your guess: %s, is...\n", guess);
 
-        if (!strcmp(guess, password)) {
+        if (!strncmp(guess, password, sizeof(password))) {
             printf("Right! Good job boi");
             break;
         }

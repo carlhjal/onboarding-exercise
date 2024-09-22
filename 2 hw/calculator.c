@@ -29,6 +29,10 @@ int power(int a, int b) {
 }
 
 int divide(int a, int b) {
+    if (b == 0) {
+        printf("Will not and can not divide by zero\n");
+        exit(1);
+    }
     return a / b;
 }
 
@@ -44,15 +48,15 @@ int main(int argc, char **argv) {
     char *operator = argv[2];
     int result;
 
-    if (!strcmp(operator, "+")) {
+    if (!strncmp(operator, "+", sizeof(char))) {
         result = add(a, b);
-    } else if (!strcmp(operator, "-")) {
+    } else if (!strncmp(operator, "-", sizeof(char))) {
         result = subtract(a, b);
-    } else if (!strcmp(operator, "x")) {
+    } else if (!strncmp(operator, "x", sizeof(char))) {
         result = multiply(a, b);
-    } else if (!strcmp(operator, "/")) {
+    } else if (!strncmp(operator, "/", sizeof(char))) {
         result = divide(a, b);
-    } else if (!strcmp(operator, "^")) {
+    } else if (!strncmp(operator, "^", sizeof(char))) {
         result = power(a, b);
     }
 
